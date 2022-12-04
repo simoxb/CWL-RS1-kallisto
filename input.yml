@@ -1,0 +1,29 @@
+read1: 
+    class: File
+    path: /path/to/read1  
+read2: 
+    class: File
+    path: /path/to/read2
+    
+fastp1: fastp_trimmed_1.fq
+fastp2: fastp_trimmed_2.fq
+
+gtf: 
+    class: File
+    path: /path/to/gtf
+
+ref_cdna:
+    class: File
+    path: /path/to/ref_cdna
+    
+transcriptome:
+    class: File
+    path: /path/to/transcriptome
+    
+strandedness_script:
+    class: File
+    path: /path/to/.../bin/check_strandedness.sh
+     
+kallisto_script:
+    class: File
+    path: /path/to/.../bin/kallisto_quant.sh
