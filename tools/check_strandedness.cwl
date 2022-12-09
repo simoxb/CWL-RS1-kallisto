@@ -9,27 +9,31 @@ hints:
 
 baseCommand: [bash]
 
+arguments:
+    - position: 1
+      valueFrom: $(inputs.basedir.path)/bin/check_strandedness.sh
+
+
+
 inputs:
-    strandedness_script:
-        type: File
-        inputBinding:
-            position: 11
+    basedir:
+        type: Directory
     read1:
         type: File
         inputBinding:
-            position: 12
+            position: 2
     read2:
         type: File
         inputBinding:
-            position: 13
+            position: 3
     gtf:
         type: File
         inputBinding:
-            position: 14
+            position: 4
     ref_cdna:
         type: File
         inputBinding:
-            position: 15
+            position: 5
        
 outputs:
     strandedness:

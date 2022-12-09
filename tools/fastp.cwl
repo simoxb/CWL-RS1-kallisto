@@ -10,6 +10,13 @@ hints:
 
 baseCommand: [fastp, --detect_adapter_for_pe]
 
+arguments:
+    - prefix: -o
+      valueFrom: $(inputs.read1.nameroot).fastp.fq
+    - prefix: -O
+      valueFrom: $(inputs.read2.nameroot).fastp.fq
+
+
 inputs:
     read1:
         type: File
@@ -20,26 +27,15 @@ inputs:
         type: File
         inputBinding:
             position: 12
-            prefix: '-I'
-    fastp1:
-        type: string
-        inputBinding:
-            position: 13
-            prefix: '-o'
-    fastp2:
-        type: string
-        inputBinding:
-            position: 14
-            prefix: '-O'
-           
+            prefix: '-I'           
 
 
 outputs:
     trimmed_read1:
         type: File
         outputBinding:
-          glob: $(inputs.fastp1)
+          glob: $(inputs.read1.nameroot).fastp.fq
     trimmed_read2:
         type: File
         outputBinding:
-          glob: $(inputs.fastp2)  
+          glob: $(inputs.read2.nameroot).fastp.fq  

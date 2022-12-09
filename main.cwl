@@ -7,10 +7,7 @@ inputs:
     gtf: File
     ref_cdna: File
     transcriptome: File
-    fastp1: string
-    fastp2: string
-    strandedness_script: File
-    kallisto_script: File
+    basedir: Directory
     
 steps:
   fastp:
@@ -18,8 +15,6 @@ steps:
     in:
       read1: read1
       read2: read2
-      fastp1: fastp1
-      fastp2: fastp2
     out: [ trimmed_read1, trimmed_read2 ]
     
   check_strandedness:
@@ -29,7 +24,7 @@ steps:
       read2: fastp/trimmed_read2
       gtf: gtf
       ref_cdna: ref_cdna
-      strandedness_script: strandedness_script
+      basedir: basedir
     out: [ strandedness ]
   
   kallisto_index:
@@ -41,7 +36,7 @@ steps:
   kallisto_quant:
     run: ./tools/kallisto_quant.cwl
     in:
-      kallisto_script: kallisto_script
+      basedir: basedir
       index: kallisto_index/index
       gtf: gtf
       strandedness: check_strandedness/strandedness
