@@ -20,8 +20,8 @@ steps:
   check_strandedness:
     run: ./tools/check_strandedness.cwl
     in:
-      read1: fastp/trimmed_read1  
-      read2: fastp/trimmed_read2
+      read1: read1  
+      read2: read2
       gtf: gtf
       ref_cdna: ref_cdna
       basedir: basedir

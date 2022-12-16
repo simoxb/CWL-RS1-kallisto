@@ -12,9 +12,9 @@ baseCommand: [fastp, --detect_adapter_for_pe]
 
 arguments:
     - prefix: -o
-      valueFrom: $(inputs.read1.nameroot).fastp.fq
+      valueFrom: $(inputs.read_1.nameroot)_fastp.fastq
     - prefix: -O
-      valueFrom: $(inputs.read2.nameroot).fastp.fq
+      valueFrom: $(inputs.read_2.nameroot)_fastp.fastq
 
 
 inputs:
@@ -34,8 +34,8 @@ outputs:
     trimmed_read1:
         type: File
         outputBinding:
-          glob: $(inputs.read1.nameroot).fastp.fq
+          glob: $(inputs.read_1.nameroot)_fastp.fastq
     trimmed_read2:
         type: File
         outputBinding:
-          glob: $(inputs.read2.nameroot).fastp.fq  
+          glob: $(inputs.read_2.nameroot)_fastp.fastq
