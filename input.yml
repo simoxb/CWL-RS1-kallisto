@@ -1,23 +1,22 @@
 read1: 
-    class: File
-    path: /path/to/read2    
+    - {class: File, path: /home/simon/input/SRR14197369_1.fastq.gz}
+    - {class: File, path: /home/simon/input/SRR_1.fastq.gz}        
 read2: 
-    class: File
-    path: /path/to/read2
-
+    - {class: File, path: /home/simon/input/SRR14197369_2.fastq.gz}
+    - {class: File, path: /home/simon/input/SRR_2.fastq.gz}
 gtf: 
     class: File
-    path: /path/to/gtf
+    path: /home/simon/input/BDGP6.gtf
 
 ref_cdna:
     class: File
-    path: /path/to/ref_cdna
+    path: /home/simon/input/BDGP6_cdna.fasta
     
 transcriptome:
     class: File
-    path: /path/to/transcriptome
+    path: /home/simon/input/BDGP6.fasta
     
 basedir:
     class: Directory
-    path: /path/to/basedir
+    path: /home/simon/GitHub/CWL-RS1-kallisto
 
