@@ -34,8 +34,8 @@ outputs:
     trimmed_read1:
         type: File
         outputBinding:
-          glob: $(inputs.read1.nameroot)_fastp.fastq
+          glob: $(inputs.read1.nameroot).fastp.fq
     trimmed_read2:
         type: File
         outputBinding:
-          glob: $(inputs.read2.nameroot)_fastp.fastq
+          glob: $(inputs.read2.nameroot).fastp.fq
