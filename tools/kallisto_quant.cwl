@@ -41,8 +41,8 @@ outputs:
     tsv:
         type: File
         outputBinding:
-          glob: abundance.tsv     
+          glob: "*.tsv"     
     bam:
         type: File
         outputBinding:
-          glob: pseudoalignments.bam     
+          glob: "*.bam"     
