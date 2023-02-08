@@ -12,15 +12,18 @@ inputs:
     gtf: File
     ref_cdna: File
     basedir: Directory
-     
+    single_end: int
+    
 steps:
     
   fastp:
     run: ../tools/fastp.cwl
     in:
+      basedir: basedir
       read1: read1
       read2: read2
-    out: [ trimmed_read1, trimmed_read2 ]
+      single_end: single_end
+    out: [ trimmed_read1, trimmed_read2 ] 
     
   check_strandedness:
     run: ../tools/check_strandedness.cwl
@@ -30,8 +33,9 @@ steps:
       gtf: gtf
       ref_cdna: ref_cdna
       basedir: basedir
+      single_end: single_end
     out: [ strandedness ]
-    
+     
   kallisto_quant:
     run: ../tools/kallisto_quant.cwl
     in:
@@ -40,7 +44,7 @@ steps:
       gtf: gtf
       strandedness: check_strandedness/strandedness
       read1: fastp/trimmed_read1
-      read2: fastp/trimmed_read2   
+      read2: fastp/trimmed_read2  
     out: [ tsv, bam ]
       
 outputs:

@@ -33,7 +33,7 @@ inputs:
         inputBinding:
             position: 5
     read2: 
-        type: File
+        type: File?
         inputBinding:
             position: 6
        

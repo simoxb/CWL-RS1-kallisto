@@ -8,26 +8,32 @@ hints:
         dockerPull: nanozoo/fastp
 
 
-baseCommand: [fastp, --detect_adapter_for_pe]
+baseCommand: [bash]
 
 arguments:
-    - prefix: -o
+    - position: 1
+      valueFrom: $(inputs.basedir.path)/bin/fastp.sh
+    - position: 2
       valueFrom: $(inputs.read1.nameroot).fastp.fq
-    - prefix: -O
+    - position: 3
       valueFrom: $(inputs.read2.nameroot).fastp.fq
 
 
 inputs:
+    basedir:
+        type: Directory
     read1:
         type: File
         inputBinding:
-            position: 11
-            prefix: '-i'
+            position: 4
     read2:
         type: File
         inputBinding:
-            position: 12
-            prefix: '-I'           
+            position: 5
+    single_end:
+        type: int
+        inputBinding: 
+            position: 6
 
 
 outputs:

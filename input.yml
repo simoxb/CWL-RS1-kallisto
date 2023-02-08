@@ -1,9 +1,12 @@
 read1: 
-    - {class: File, path: /home/simon/input/SRR14197369_1.fastq.gz}
-    - {class: File, path: /home/simon/input/SRR_1.fastq.gz}        
+    - {class: File, path: /home/simon/input/SRR10055512_1.fq}
+    - {class: File, path: /home/simon/input/ARR10055512_1.fq}        
 read2: 
-    - {class: File, path: /home/simon/input/SRR14197369_2.fastq.gz}
-    - {class: File, path: /home/simon/input/SRR_2.fastq.gz}
+    - {class: File, path: /home/simon/input/SRR10055512_2.fq}
+    - {class: File, path: /home/simon/input/ARR10055512_1.fq}
+single_end: 
+    - 1
+    - 0
 gtf: 
     class: File
     path: /home/simon/input/BDGP6.gtf

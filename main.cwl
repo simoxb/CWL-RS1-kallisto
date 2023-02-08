@@ -13,6 +13,7 @@ inputs:
     ref_cdna: File
     transcriptome: File
     basedir: Directory
+    single_end: int[]
     
 steps:
   
@@ -24,7 +25,7 @@ steps:
     
   read_processing: 
     run: ./subworkflows/read_processing.cwl
-    scatter: [read1, read2]
+    scatter: [ read1, read2, single_end ]
     scatterMethod: dotproduct
     in:
       index: kallisto_index/index
@@ -33,6 +34,7 @@ steps:
       gtf: gtf
       ref_cdna: ref_cdna
       basedir: basedir
+      single_end: single_end
     out:
       [ tsv, bam ]    
       

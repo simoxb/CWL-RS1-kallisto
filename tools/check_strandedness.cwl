@@ -34,6 +34,10 @@ inputs:
         type: File
         inputBinding:
             position: 5
+    single_end:
+        type: int
+        inputBinding: 
+            position: 6
        
 outputs:
     strandedness:
