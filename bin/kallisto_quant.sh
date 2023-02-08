@@ -1,5 +1,5 @@
 #!/bin/bash
-
+name=$(basename $4)
 if [[ $# == 5 ]]; then
 	if [[ $3 == *"firststrand"* ]]; then
 		kallisto quant -i $1 -o ./ --gtf $2 --fr-stranded --genomebam $4 $5
@@ -21,3 +21,5 @@ elif [[ $# = 4 ]]; then
 		echo $3 > error_strandness.txt
 	fi
 fi
+mv pseudoalignments.bam ${name}.bam
+mv abundance.tsv ${name}.tsv
